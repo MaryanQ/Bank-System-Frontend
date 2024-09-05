@@ -2,6 +2,7 @@ import React from "react";
 
 import "./App.css";
 import { CustomerList } from "./components/CustomerList";
+import { CreateCustomer } from "./form/CreateCustomer";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       </header>
 
       <CustomerList />
+      <CreateCustomer />
     </div>
   );
 }
