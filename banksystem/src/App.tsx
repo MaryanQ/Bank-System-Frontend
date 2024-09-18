@@ -1,18 +1,46 @@
-import React from "react";
-
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CustomerList } from "./components/CustomerList";
-import { CreateCustomer } from "./form/CreateCustomer";
+import { EditCustomer } from "./form/EditCustomer";
+import { DeleteCustomer } from "./form/DeleteCustomer";
+import { AddCustomer } from "./form/AddCustomer";
+import { Dashboard } from "./dashboard/Dashboard";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Bank System</h1>
-      </header>
+      <Router>
+        {/* Navigation Bar */}
+        <header className="bg-white shadow mb-8">
+          <nav className="container mx-auto flex justify-between py-4">
+            <ul className="flex space-x-8 text-gray-800 font-semibold">
+              <li>
+                <a href="/dashboard" className="hover:text-blue-500">
+                  Dashboard
+                </a>
+              </li>
+              <li>
+                <a href="/" className="hover:text-blue-500">
+                  Customers
+                </a>
+              </li>
+              <li>
+                <a href="/add-customer" className="hover:text-blue-500">
+                  Add Customer
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </header>
 
-      <CustomerList />
-      <CreateCustomer />
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={<CustomerList />} />
+          <Route path="/add-customer" element={<AddCustomer />} />
+          <Route path="/edit/:customerId" element={<EditCustomer />} />
+          <Route path="/delete/:customerId" element={<DeleteCustomer />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

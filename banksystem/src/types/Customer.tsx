@@ -5,5 +5,7 @@ export default interface Customer {
   name: string;
   email: string;
   balance: number;
-  bankAccount?: BankAccount[]; // Optional array of BankAccount (to handle lazy loading if needed)
+  bankAccount?: BankAccount[];
+
+  // Optional array of BankAccount (to handle lazy loading if needed)
 }
